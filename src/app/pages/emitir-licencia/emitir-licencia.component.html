@@ -1,0 +1,82 @@
+<h2 class="content-block">Emitir Licencia</h2>
+<div class="content-block">
+    <div class="dx-card responsive-paddings">
+        <dx-form id="formLicencia" [(formData)]="licencia" labelLocation="top" minColWidth="200" width="100%">
+
+            <dxi-item itemType="group" colCount="2">
+                <dxi-item itemType="group" colSpan="1">
+                    <dxi-item dataField="tipo" editorType="dxSelectBox"
+                        [editorOptions]="{ dataSource: tipoLicenciaDataSource, 
+                            value: licencia?.tipo, displayExpr: 'nombre', valueExpr: 'id', searchEnabled:true, onValueChanged: tipoLicenciaChanged }">
+                        <dxo-label text="Tipo de Licencia"></dxo-label>
+                        <dxi-validation-rule type="required" message="El campo tipo de Licencia es obligatorio.">
+                        </dxi-validation-rule>
+                    </dxi-item>
+                </dxi-item>
+
+                <dxi-item itemType="group" colSpan="1">
+                    <dxi-item dataField="tipo" editorType="dxSelectBox"
+                        [editorOptions]="{ dataSource: titularesDataSource, 
+                            value: licencia?.titular, displayExpr: 'nombre', searchEnabled:true, onValueChanged: titularChanged }">
+                        <dxo-label text="Titular"></dxo-label>
+                        <dxi-validation-rule type="required" message="El campo Titular es obligatorio.">
+                        </dxi-validation-rule>
+                    </dxi-item>
+                </dxi-item>
+            </dxi-item>
+
+            <dxi-item itemType="group" colCount="2">
+                <dxi-item itemType="group" colCount="1">
+                    <dxi-item dataField="fechaEmision" editorType="dxDateBox"
+                        [editorOptions]="{ useMaskBehavior:true, width:'100%', showClearButton:'true', displayFormat:'dd/MM/yyyy', dateSerializationFormat: 'yyyy/MM/dd' }">
+                        <dxo-label text="Fecha de Emisión"></dxo-label>
+                        <dxi-validation-rule type="required" message="La fecha de emisión es obligatoria.">
+                        </dxi-validation-rule>
+                    </dxi-item>
+                </dxi-item>
+                <dxi-item itemType="group" colCount="1">
+                    <dxi-item dataField="fechaVencimiento" editorType="dxDateBox"
+                        [editorOptions]="{ useMaskBehavior:true, width:'100%', showClearButton:'true', displayFormat:'dd/MM/yyyy', dateSerializationFormat: 'yyyy/MM/dd' }">
+                        <dxo-label text="Fecha de Vencimiento"></dxo-label>
+                        <dxi-validation-rule type="required" message="La fecha de vencimiento es obligatoria.">
+                        </dxi-validation-rule>
+                    </dxi-item>
+                </dxi-item>
+            </dxi-item>
+
+            <dxi-item itemType="group" colSpan="2">
+                <dxi-item dataField="observaciones" editorType="dxTextArea" [editorOptions]="{ height: 100 }">
+                </dxi-item>
+            </dxi-item>
+
+            <dxi-item itemType="group" colCount="2">
+                <dxi-item itemType="group" colSpan="1">
+                    <dxi-item dataField="numeroCopias" readOnly="false">
+                        <dxo-label text="Número de copias"></dxo-label>
+                        <dxi-validation-rule type="required" message="El campo número de copias es obligatorio.">
+                        </dxi-validation-rule>
+                    </dxi-item>
+                </dxi-item>
+
+                <dxi-item itemType="group" colSpan="1">
+                    <dxi-item dataField="pendiente" editorType="dxCheckBox"
+                        [editorOptions]="{ value: licencia?.pendiente}">
+                        <dxo-label text="Pendiente"></dxo-label>
+                    </dxi-item>
+                </dxi-item>
+            </dxi-item>
+        </dx-form>
+
+        <div style="text-align:right">
+            <dx-button class="button-popup white-text green-button" style="margin-left:5px" text="Alta Titular"
+                type="success" alignment="right" (onClick)="altaTitular()">
+            </dx-button>
+            <dx-button class="button-popup white-text green-button" style="margin-left:5px" text="Imprimir Licencia"
+                type="regular" alignment="right" (onClick)="imprimirLicencia()">
+            </dx-button>
+            <dx-button class="button-popup white-text green-button" style="margin-left:5px" text="Emitir Licencia"
+                type="success" alignment="right" (onClick)="emitirLicencia()">
+            </dx-button>
+        </div>
+    </div>
+</div>

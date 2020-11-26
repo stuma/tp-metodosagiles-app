@@ -10,11 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { DxBoxModule, DxButtonModule, DxCheckBoxModule, DxFormModule, DxPopupModule, DxSelectBoxModule, DxTemplateModule, DxTextBoxModule, DxValidatorModule } from 'devextreme-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { AltaTitularComponent } from './pages/alta-titular/alta-titular.component';
+import { DataService } from './shared/services/data.service';
+import { EmitirLicenciaComponent } from './pages/emitir-licencia/emitir-licencia.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AltaTitularComponent
+    AltaTitularComponent,
+    EmitirLicenciaComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { AltaTitularComponent } from './pages/alta-titular/alta-titular.componen
     DxBoxModule,
     HttpClientModule
   ],
-  providers: [AuthService, ScreenService, AppInfoService],
+  providers: [AuthService, ScreenService, AppInfoService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

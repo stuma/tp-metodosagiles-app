@@ -7,8 +7,14 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { AltaTitularComponent } from './pages/alta-titular/alta-titular.component';
+import { EmitirLicenciaComponent } from './pages/emitir-licencia/emitir-licencia.component';
 
 const routes: Routes = [
+  {
+    path: 'pages/emitir-licencia',
+    component: EmitirLicenciaComponent,
+    canActivate: [ AuthGuardService ]
+  },
   {
     path: 'pages/alta-titular',
     component: AltaTitularComponent,

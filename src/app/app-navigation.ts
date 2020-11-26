@@ -22,5 +22,10 @@ export const navigation = [
     text: 'Alta Titular',
     path: '/pages/alta-titular',
     icon: 'folder'
+  },
+  {
+    text: 'Emitir Licencia',
+    path: '/pages/emitir-licencia',
+    icon: 'folder'
   }
 ];

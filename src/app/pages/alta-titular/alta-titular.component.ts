@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DxFormComponent } from 'devextreme-angular';
+import { DataService, Titular } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-alta-titular',
@@ -6,23 +8,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./alta-titular.component.css']
 })
 export class AltaTitularComponent implements OnInit {
-  titular:any;
-  constructor() { }
+  //widgets de la vista
+  @ViewChild(DxFormComponent) formTitular: DxFormComponent;
 
-  ngOnInit() {
-    this.titular={
-      nombre:"",
-      apellido:"",
-      fechaNacimiento:null,
-      dni:"",
-      direccion:"",
-      factor_rh:"",
-      donante:true,
+  //variables de la vista
+  titular: Titular;
+  
+  //services
+  dataService: DataService;
 
-    }
+  constructor(dataService: DataService) { 
+    this.dataService = dataService;
   }
 
-  guardarTitular(){
+  ngOnInit() {
+    this.titular = this.dataService.getTitular();
+  }
+
+  guardarTitular() {
     console.log(this.titular);
   }
 
