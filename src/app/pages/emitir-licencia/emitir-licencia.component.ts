@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DxFormComponent } from 'devextreme-angular';
 import { DataService, Licencia } from 'src/app/shared/services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-emitir-licencia',
@@ -21,10 +22,13 @@ export class EmitirLicenciaComponent implements OnInit {
   //servicios
   dataService: DataService;
 
-  constructor(dataService: DataService) {
+  constructor(
+    dataService: DataService,
+    private router: Router
+  ) {
     this.dataService = dataService;
     this.tipoLicenciaChanged = this.tipoLicenciaChanged.bind(this);
-
+    this.titularChanged = this.titularChanged.bind(this);
   }
 
   ngOnInit() {
@@ -42,6 +46,7 @@ export class EmitirLicenciaComponent implements OnInit {
 
   altaTitular() {
     console.log('alta titular');
+    this.router.navigate(['/pages/alta-titular']);
   }
 
   imprimirLicencia() {
