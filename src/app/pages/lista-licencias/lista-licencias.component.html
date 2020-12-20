@@ -1,0 +1,80 @@
+<h2 class="content-block">Lista Licencias</h2>
+<div class="content-block">
+    <div class="dx-card responsive-paddings">
+        <div class="actions">
+            <dx-button text="Listar licencias vencidas" (onClick)="verLicenciasVencidas()" type="success" icon="add">
+            </dx-button>
+        </div>
+        <dx-data-grid id="licenciasGrid" [dataSource]="licenciasDataSource" [remoteOperations]="true"
+            [repaintChangesOnly]="true" [height]="gridLicenciasHeight"
+            (onSelectionChanged)="seleccionaItemGrid($event)" [showBorders]="true">
+            <dxo-selection mode="single"></dxo-selection>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+            <dxi-column dataField="titular.nombre"  caption="Nombre">
+            </dxi-column>
+
+            <dxi-column dataField="titular.apellido"  caption="Apellido">
+            </dxi-column>
+
+            <dxi-column dataField="titular.dni"  caption="Dni">
+            </dxi-column>
+
+            <dxi-column dataField="titular.grupoSanguineo" caption="Grupo Sanguineo">
+               
+            </dxi-column>
+            <dxi-column dataField="titular.factorRh"  caption="Factor RH">
+            
+            </dxi-column>
+            <dxi-column dataField="titular.donante"  caption="Donante">
+                
+            </dxi-column>
+            <dxi-column dataField="fechaDeVencimiento" caption="Fecha de Vencimiento">
+                
+            </dxi-column>
+            <dxo-scrolling mode="virtual" rowRenderingMode="virtual"></dxo-scrolling>
+            <dxo-paging [pageSize]="20"></dxo-paging>
+        </dx-data-grid>
+
+    </div> 
+</div>
+<!--popup para ver las licencias vencidas-->
+<dx-popup class="popup" width="1110" height="auto" showTitle="true" title="Licencias Vencidas" dragEnabled="false"
+    (closeOnOutsideClick)="false" (closeOnBackButton)="false" (onHidden)="cerrarPopUpLicenciasVencidas()"
+    [(visible)]="popupVerLicenciasVencidas">
+
+    <dx-data-grid id="licenciasGrid" [dataSource]="licenciasDataSource" [remoteOperations]="true"
+        [repaintChangesOnly]="true" [height]="gridLicenciasHeight" [showBorders]="true">
+        <dxo-selection mode="single"></dxo-selection>
+        <dxo-filter-row [visible]="true"></dxo-filter-row>
+        <dxi-column dataField="titular.nombre"  caption="Nombre">
+        </dxi-column>
+
+        <dxi-column dataField="titular.apellido"  caption="Apellido">
+        </dxi-column>
+
+        <dxi-column dataField="titular.dni"  caption="Dni">
+        </dxi-column>
+
+        <dxi-column dataField="titular.grupoSanguineo" caption="Grupo Sanguineo">
+           
+        </dxi-column>
+        <dxi-column dataField="titular.factorRh"  caption="Factor RH">
+        
+        </dxi-column>
+        <dxi-column dataField="titular.donante"  caption="Donante">
+            
+        </dxi-column>
+        <dxi-column dataField="fechaDeVencimiento" caption="Fecha de Vencimiento">
+            
+        </dxi-column>
+        <dxo-scrolling mode="virtual" rowRenderingMode="virtual"></dxo-scrolling>
+        <dxo-paging [pageSize]="20"></dxo-paging>
+    </dx-data-grid>
+
+    <div class="buttons-on-popup" style="text-align:right">
+        <dx-button class="button-popup white-text green-button" style="margin-left:5px" text="Cerrar" type="cancel"
+            alignment="right" (onClick)="cerrarPopUpLicenciasVencidas()" icon="remove">
+        </dx-button>
+    </div>
+</dx-popup>

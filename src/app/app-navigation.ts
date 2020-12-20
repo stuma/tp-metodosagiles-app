@@ -27,5 +27,15 @@ export const navigation = [
     text: 'Emitir Licencia',
     path: '/pages/emitir-licencia',
     icon: 'folder'
+  },
+  {
+    text: 'Lista Licencias',
+    path: '/pages/lista-licencias',
+    icon: 'folder'
+  },
+  {
+    text: 'Renovar Licencia',
+    path: '/pages/renovar-licencia',
+    icon: 'folder'
   }
 ];

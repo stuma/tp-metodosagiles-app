@@ -8,8 +8,21 @@ import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { AltaTitularComponent } from './pages/alta-titular/alta-titular.component';
 import { EmitirLicenciaComponent } from './pages/emitir-licencia/emitir-licencia.component';
+import { ListaLicenciasComponent } from './pages/lista-licencias/lista-licencias.component';
+import { RenovarLicenciaComponent } from './pages/renovar-licencia/renovar-licencia.component';
+
 
 const routes: Routes = [
+  {
+    path: 'pages/renovar-licencia',
+    component: RenovarLicenciaComponent,
+    canActivate: [ AuthGuardService ]
+  },
+  {
+    path: 'pages/lista-licencias',
+    component: ListaLicenciasComponent,
+    canActivate: [ AuthGuardService ]
+  },
   {
     path: 'pages/emitir-licencia',
     component: EmitirLicenciaComponent,

@@ -1,0 +1,51 @@
+<h2 class="content-block">Renovar Licencia</h2>
+<div class="content-block">
+    <div class="dx-card responsive-paddings">
+        <dx-data-grid id="licenciasGrid" [dataSource]="licenciasDataSource" [remoteOperations]="true"
+            [repaintChangesOnly]="true" [height]="gridLicenciasHeight" (onSelectionChanged)="seleccionaItemGrid($event)"
+            [showBorders]="true">
+            <dxo-selection mode="single"></dxo-selection>
+            <dxo-header-filter [visible]="true"></dxo-header-filter>
+
+            <dxo-search-panel [visible]="true" [width]="240" placeholder="Inserte DNI..."></dxo-search-panel>
+
+            <dxi-column [allowSearch]="false" dataField="titular.nombre" caption="Nombre">
+            </dxi-column>
+
+            <dxi-column [allowSearch]="false" dataField="titular.apellido" caption="Apellido">
+            </dxi-column>
+
+            <dxi-column dataField="titular.dni" caption="Dni">
+            </dxi-column>
+
+            <dxi-column [allowSearch]="false" dataField="titular.grupoSanguineo" caption="Grupo Sanguineo">
+
+            </dxi-column>
+            <dxi-column [allowSearch]="false" dataField="titular.factorRh" caption="Factor RH">
+
+            </dxi-column>
+            <dxi-column [allowSearch]="false" dataField="titular.donante" caption="Donante">
+
+            </dxi-column>
+            <dxi-column [allowSearch]="false" dataField="fechaDeVencimiento" caption="Fecha de Vencimiento">
+
+            </dxi-column>
+            <dxo-scrolling mode="virtual" rowRenderingMode="virtual"></dxo-scrolling>
+            <dxo-paging [pageSize]="20"></dxo-paging>
+        </dx-data-grid>
+        <div class="actions">
+            <dx-button text="Renovar licencia" (onClick)="renovarLicencia()" type="success" icon="add">
+            </dx-button>
+
+            <dx-popup [width]="300" [height]="250" [showTitle]="true" title="Renovar Licencia" [dragEnabled]="false"
+                [closeOnOutsideClick]="true" [(visible)]="popupRenovarLicencia">
+                <div *dxTemplate="let data of 'content'">
+                    <p>Licencia renovada correctamente</p>
+                </div>
+            </dx-popup>
+
+
+        </div>
+
+    </div>
+</div>
