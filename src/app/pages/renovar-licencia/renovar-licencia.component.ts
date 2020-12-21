@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
   selector: 'app-renovar-licencia',
@@ -11,9 +12,17 @@ export class RenovarLicenciaComponent implements OnInit {
   licenciasDataSource: any;
   listaLicenciasTitulo: string;
   popupRenovarLicencia: boolean=false;
+  licenciasVencidasDataSource: any;
+
+  constructor(
+    private dataService: DataService
+  ) {
+
+  }
 
   ngOnInit() {
     this.gridLicenciasHeight = window.innerHeight - 180;
+    this.licenciasVencidasDataSource = this.dataService.getLicenciasVencidas();
   }
 
   seleccionaItemGrid($event) {

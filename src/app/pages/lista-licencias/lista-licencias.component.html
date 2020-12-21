@@ -10,7 +10,7 @@
             (onSelectionChanged)="seleccionaItemGrid($event)" [showBorders]="true">
             <dxo-selection mode="single"></dxo-selection>
             <dxo-filter-row [visible]="true"></dxo-filter-row>
-            <dxo-header-filter [visible]="true"></dxo-header-filter>
+            <dxo-header-filter [visible]="false"></dxo-header-filter>
             <dxi-column dataField="titular.nombre"  caption="Nombre">
             </dxi-column>
 
@@ -29,7 +29,7 @@
             <dxi-column dataField="titular.donante"  caption="Donante">
                 
             </dxi-column>
-            <dxi-column dataField="fechaDeVencimiento" caption="Fecha de Vencimiento">
+            <dxi-column dataField="fechaVencimiento" caption="Fecha de Vencimiento">
                 
             </dxi-column>
             <dxo-scrolling mode="virtual" rowRenderingMode="virtual"></dxo-scrolling>
@@ -43,7 +43,7 @@
     (closeOnOutsideClick)="false" (closeOnBackButton)="false" (onHidden)="cerrarPopUpLicenciasVencidas()"
     [(visible)]="popupVerLicenciasVencidas">
 
-    <dx-data-grid id="licenciasGrid" [dataSource]="licenciasDataSource" [remoteOperations]="true"
+    <dx-data-grid id="licenciasGrid" [dataSource]="licenciasVencidasDataSource" [remoteOperations]="true"
         [repaintChangesOnly]="true" [height]="gridLicenciasHeight" [showBorders]="true">
         <dxo-selection mode="single"></dxo-selection>
         <dxo-filter-row [visible]="true"></dxo-filter-row>
@@ -65,7 +65,7 @@
         <dxi-column dataField="titular.donante"  caption="Donante">
             
         </dxi-column>
-        <dxi-column dataField="fechaDeVencimiento" caption="Fecha de Vencimiento">
+        <dxi-column dataField="fechaVencimiento" caption="Fecha de Vencimiento">
             
         </dxi-column>
         <dxo-scrolling mode="virtual" rowRenderingMode="virtual"></dxo-scrolling>

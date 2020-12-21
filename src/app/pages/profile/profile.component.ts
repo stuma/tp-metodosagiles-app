@@ -12,8 +12,8 @@ export class ProfileComponent {
   constructor() {
     this.employee = {
       ID: 7,
-      FirstName: 'Sandra',
-      LastName: 'Johnson',
+      FirstName: 'Pedro',
+      LastName: 'Romero',
       Prefix: 'Mrs.',
       Position: 'Controller',
       Picture: 'images/employees/06.png',

@@ -1,7 +1,7 @@
 <h2 class="content-block">Renovar Licencia</h2>
 <div class="content-block">
     <div class="dx-card responsive-paddings">
-        <dx-data-grid id="licenciasGrid" [dataSource]="licenciasDataSource" [remoteOperations]="true"
+        <dx-data-grid id="licenciasGrid" [dataSource]="licenciasVencidasDataSource" [remoteOperations]="true"
             [repaintChangesOnly]="true" [height]="gridLicenciasHeight" (onSelectionChanged)="seleccionaItemGrid($event)"
             [showBorders]="true">
             <dxo-selection mode="single"></dxo-selection>
@@ -27,7 +27,7 @@
             <dxi-column [allowSearch]="false" dataField="titular.donante" caption="Donante">
 
             </dxi-column>
-            <dxi-column [allowSearch]="false" dataField="fechaDeVencimiento" caption="Fecha de Vencimiento">
+            <dxi-column [allowSearch]="false" dataField="fechaVencimiento" caption="Fecha de Vencimiento">
 
             </dxi-column>
             <dxo-scrolling mode="virtual" rowRenderingMode="virtual"></dxo-scrolling>

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DxDataGridComponent } from 'devextreme-angular';
+import { DataService } from 'src/app/shared/services/data.service';
 
 
 @Component({
@@ -14,9 +15,27 @@ export class ListaLicenciasComponent implements OnInit {
   gridLicenciasHeight: number;
   licenciasDataSource: any;
   listaLicenciasTitulo: string;
+  licenciasVencidasDataSource:any;
+
+  constructor(
+    private dataService: DataService
+  ) {
+
+  }
 
   ngOnInit() {
     this.gridLicenciasHeight = window.innerHeight - 180;
+
+    this.licenciasDataSource = this.dataService.getLicencias();
+    this.licenciasVencidasDataSource = this.dataService.getLicenciasVencidas();
+
+    /*this.dataService.getLicencias().then((response) => {
+      console.log(response);
+      this.licenciasDataSource = response;
+    })
+    .catch(error => {
+      console.log(error);
+    })*/
   }
 
 
