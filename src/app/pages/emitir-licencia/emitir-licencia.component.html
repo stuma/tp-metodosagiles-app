@@ -2,44 +2,64 @@
 <div class="content-block">
     <div class="dx-card responsive-paddings">
         <dx-form id="formLicencia" [(formData)]="licencia" labelLocation="top" minColWidth="200" width="100%">
-
             <dxi-item itemType="group" colCount="2">
                 <dxi-item itemType="group" colSpan="1">
-                    <dxi-item dataField="tipo" editorType="dxSelectBox"
+
+                    <dxi-item dataField="tipoLicencia" editorType="dxSelectBox"
                         [editorOptions]="{ dataSource: tipoLicenciaDataSource, 
                             value: licencia?.tipo, displayExpr: 'nombre', valueExpr: 'id', searchEnabled:true, onValueChanged: tipoLicenciaChanged }">
                         <dxo-label text="Tipo de Licencia"></dxo-label>
                         <dxi-validation-rule type="required" message="El campo tipo de Licencia es obligatorio.">
                         </dxi-validation-rule>
                     </dxi-item>
-                </dxi-item>
 
-                <dxi-item itemType="group" colSpan="1">
-                    <dxi-item dataField="tipo" editorType="dxSelectBox"
+                    <dxi-item dataField="titular" editorType="dxSelectBox"
                         [editorOptions]="{ dataSource: titularesDataSource, 
                             value: licencia?.titular, displayExpr: 'nombre', searchEnabled:true, onValueChanged: titularChanged }">
                         <dxo-label text="Titular"></dxo-label>
                         <dxi-validation-rule type="required" message="El campo Titular es obligatorio.">
                         </dxi-validation-rule>
                     </dxi-item>
-                </dxi-item>
-            </dxi-item>
 
-            <dxi-item itemType="group" colCount="2">
-                <dxi-item itemType="group" colCount="1">
                     <dxi-item dataField="fechaEmision" editorType="dxDateBox"
                         [editorOptions]="{ useMaskBehavior:true, width:'100%', showClearButton:'true', displayFormat:'dd/MM/yyyy', dateSerializationFormat: 'yyyy/MM/dd' }">
                         <dxo-label text="Fecha de Emisión"></dxo-label>
                         <dxi-validation-rule type="required" message="La fecha de emisión es obligatoria.">
                         </dxi-validation-rule>
                     </dxi-item>
-                </dxi-item>
-                <dxi-item itemType="group" colCount="1">
+
                     <dxi-item dataField="fechaVencimiento" editorType="dxDateBox"
                         [editorOptions]="{ useMaskBehavior:true, width:'100%', showClearButton:'true', displayFormat:'dd/MM/yyyy', dateSerializationFormat: 'yyyy/MM/dd' }">
                         <dxo-label text="Fecha de Vencimiento"></dxo-label>
                         <dxi-validation-rule type="required" message="La fecha de vencimiento es obligatoria.">
                         </dxi-validation-rule>
+                    </dxi-item>
+
+                </dxi-item>
+
+                <dxi-item itemType="group" colSpan="1">
+                    <!--file uploader-->
+                    <dxi-item itemType="group">
+                        <dxi-item dataField="foto">
+                            <div *dxTemplate>
+                                <dx-file-uploader 
+                                [multiple]="false" 
+                                accept="image/*" 
+                                uploadMode="instantly"
+                                (onUploaded)="addFoto($event)" 
+                                name=foto 
+                                selectButtonText="Seleccione una foto"
+                                labelText="" 
+                                [uploadHeaders]="uploadHeaders" 
+                                [uploadUrl]="uploadPath">
+                                </dx-file-uploader>
+                            </div>
+                        </dxi-item>
+                        <dxi-item>
+                            <div *dxTemplate>
+                                <app-fotos [fotosDataSource]="fotoId"> </app-fotos>
+                            </div>
+                        </dxi-item>
                     </dxi-item>
                 </dxi-item>
             </dxi-item>
