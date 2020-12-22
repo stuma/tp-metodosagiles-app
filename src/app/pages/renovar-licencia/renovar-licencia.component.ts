@@ -22,7 +22,7 @@ export class RenovarLicenciaComponent implements OnInit {
 
   ngOnInit() {
     this.gridLicenciasHeight = window.innerHeight - 180;
-    this.licenciasVencidasDataSource = this.dataService.getLicenciasVencidas();
+    this.licenciasDataSource = this.dataService.getLicencias();
   }
 
   seleccionaItemGrid($event) {

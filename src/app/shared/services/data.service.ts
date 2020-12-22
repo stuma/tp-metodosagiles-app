@@ -122,6 +122,24 @@ export class DataService {
                 "observaciones": "Debe conducir con lentes",
                 "numeroCopias": 5,
                 "pendiente": false
+            },
+            {
+                "id": 4,
+                "tipo": { id: 1, nombre: 'Clase A' },
+                "fechaEmision": "1 / 02 / 2017",
+                "fechaVencimiento": "1 / 09 / 2021",
+                "titular": {
+                    "id": 4,
+                    "dni": 39400521,
+                    "nombre": "Juan",
+                    "apellido": "Gallino",
+                    "fechaNacimiento": "29 / 6 / 1995",
+                    "direccion": "Ituizango",
+                    "donante": true, factorRh: "A-"
+                },
+                "observaciones": "",
+                "numeroCopias": 4,
+                "pendiente": false
             }
         ]; 
         return licenciasDataSource;
@@ -159,24 +177,6 @@ export class DataService {
                     "fechaNacimiento": "22 / 5 / 1996",
                     "direccion": "Las heras 1200",
                     "donante": true, factorRh: "B-"
-                },
-                "observaciones": "",
-                "numeroCopias": 4,
-                "pendiente": false
-            },
-            {
-                "id": 4,
-                "tipo": { id: 1, nombre: 'Clase A' },
-                "fechaEmision": "1 / 02 / 2017",
-                "fechaVencimiento": "1 / 09 / 2021",
-                "titular": {
-                    "id": 4,
-                    "dni": 39400521,
-                    "nombre": "Juan",
-                    "apellido": "Gallino",
-                    "fechaNacimiento": "29 / 6 / 1995",
-                    "direccion": "Ituizango",
-                    "donante": true, factorRh: "A-"
                 },
                 "observaciones": "",
                 "numeroCopias": 4,
